@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getRandomPrompt } from "../utils";
 import { FormField, Loader } from "../components";
+import { logo_icon } from "../assets";
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const CreatePost = () => {
     photo: "",
   });
 
-  const [isGeneratingImg, setIsGeneratingImg] = useState(false);
+  const [isGeneratingImage, setIsGeneratingImage] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = () => {
@@ -19,11 +20,16 @@ const CreatePost = () => {
   };
 
   const handleChange = (e) => {
-    console.log("Handle change");
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSurpriseMe = () => {
-    console.log("Hanlde surprise me");
+    const randomPrompt = getRandomPrompt();
+    setForm({ ...form, prompt: randomPrompt });
+  };
+
+  const generateImage = () => {
+    console.log("Generate image");
   };
 
   return (
@@ -36,6 +42,29 @@ const CreatePost = () => {
         <div className="flex flex-col gap-5">
           <FormField labelName="Your name" type="text" name="name" placeholder="John Doe" value={form.name} handleChange={handleChange} />
           <FormField labelName="Prompt" type="text" name="prompt" placeholder="John Doe on a space suit" value={form.prompt} handleChange={handleChange} isSurpriseMe handleSurpriseMe={handleSurpriseMe} />
+
+          <div className="relative w-64 p-3 h-64 flex justiy-center items-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 ">
+            {form.photo ? <img src={form.photo} alt={form.prompt} className="w-full h-full object-contain" /> : <img src={logo_icon} alt="preview" className="mx-auto object-contain opacity-40" />}
+
+            {isGeneratingImage && (
+              <div className="absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)] rounded-lg">
+                <Loader />
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-5 flex gap-5">
+          <button type="button" onClick={generateImage} className="px-5 py-2.5 text-center text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto">
+            {isGeneratingImage ? "Generating..." : "Generate"}
+          </button>
+        </div>
+
+        <div className="mt-10">
+          <p className="mt-2 text-[#666e75] text-[14px]">Once you have created the image you want, share it with others in the community</p>
+          <button type="submit" className="px-5 py-2.5 text-center mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto ">
+            {isLoading ? "Sharing..." : "Share with the community"}
+          </button>
         </div>
       </form>
     </section>

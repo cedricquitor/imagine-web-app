@@ -2,10 +2,18 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
-    fontFamily: {
-      fredoka: ["Fredoka One", "cursive"],
-      raleway: ["Raleway", "sans-serif"],
+    extend: {
+      screens: {
+        xs: "480px",
+      },
+      fontFamily: {
+        fredoka: ["Fredoka One", "cursive"],
+        raleway: ["Raleway", "sans-serif"],
+      },
+      boxShadow: {
+        card: "0 0 1px 0 rgba(189,192,207,0.06),0 10px 16px -1px rgba(189,192,207,0.2)",
+        cardhover: "0 0 1px 0 rgba(189,192,207,0.06),0 10px 16px -1px rgba(189,192,207,0.4)",
+      },
     },
   },
   plugins: [],

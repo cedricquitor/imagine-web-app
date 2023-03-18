@@ -15,9 +15,7 @@ const CreatePost = () => {
   const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const shareImage = async () => {
     if (form.name && form.prompt && form.photo) {
       setIsLoading(true);
 
@@ -52,7 +50,9 @@ const CreatePost = () => {
     setForm({ ...form, prompt: randomPrompt });
   };
 
-  const generateImage = async () => {
+  const generateImage = async (e) => {
+    e.preventDefault();
+
     if (form.prompt) {
       try {
         setIsGeneratingImage(true);
@@ -78,40 +78,53 @@ const CreatePost = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto bg-red-200">
+    <section className="max-w-7xl mx-auto space-y-16">
+      {/* 1. Imagine to reality */}
       <div>
-        <h1 className="font-extrabold text-[#222328] text-[32px]">Imagine to reality</h1>
-        <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">Bring what you have in mind to reality</p>
-      </div>
-      <form onSubmit={handleSubmit} className="mt-16 max-w-3xl">
-        <div className="flex flex-col gap-5">
-          <FormField labelName="Your name" type="text" name="name" placeholder="John Doe" value={form.name} handleChange={handleChange} />
-          <FormField labelName="Prompt" type="text" name="prompt" placeholder="John Doe on a space suit" value={form.prompt} handleChange={handleChange} isSurpriseMe handleSurpriseMe={handleSurpriseMe} />
+        <div className="w-[50%] flex flex-col mx-auto">
+          <h1 className="font-extrabold text-[#222328] text-[32px]">1. Imagine to reality</h1>
+          <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">Bring what you have in mind to reality</p>
+        </div>
+        <div className="flex flex-col justfiy-center items-center">
+          <form onSubmit={generateImage} className="mt-4 max-w-xl w-[50%]">
+            {/* First Grid */}
+            <div className="flex flex-col gap-5">
+              <FormField labelName="Your name" type="text" name="name" placeholder="John Doe" value={form.name} handleChange={handleChange} />
+              <FormField labelName="Prompt" type="text" name="prompt" placeholder="John Doe on a space suit" value={form.prompt} handleChange={handleChange} isSurpriseMe handleSurpriseMe={handleSurpriseMe} />
+            </div>
 
-          <div className="relative w-64 p-3 h-64 flex justiy-center items-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 ">
-            {form.photo ? <img src={form.photo} alt={form.prompt} className="w-full h-full object-contain" /> : <img src={logo_icon} alt="preview" className="mx-auto object-contain opacity-40" />}
+            {/* Second Grid */}
+            <div className="mt-5 flex gap-5 flex-col">
+              <div className="relative p-3 h-[50vh] flex justiy-center items-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 ">
+                {form.photo ? <img src={form.photo} alt={form.prompt} className="w-full h-full object-contain" /> : <img src={logo_icon} alt="preview" className="mx-auto object-contain opacity-40" />}
 
-            {isGeneratingImage && (
-              <div className="absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)] rounded-lg">
-                <Loader />
+                {isGeneratingImage && (
+                  <div className="absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)] rounded-lg">
+                    <Loader />
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        </div>
+            </div>
 
-        <div className="mt-5 flex gap-5">
-          <button type="button" onClick={generateImage} className="px-5 py-2.5 text-center text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto">
-            {isGeneratingImage ? "Generating..." : "Generate"}
-          </button>
+            <button type="submit" className="mt-2 px-5 py-2.5 text-center text-white bg-neutral-400 font-medium rounded-md text-sm w-full">
+              {isGeneratingImage ? "Generating..." : "Generate"}
+            </button>
+          </form>
         </div>
-
-        <div className="mt-10">
-          <p className="mt-2 text-[#666e75] text-[14px]">Once you have created the image you want, share it with others in the community</p>
-          <button type="submit" className="px-5 py-2.5 text-center mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto ">
+      </div>
+      {/* 2. Share to community */}
+      <div className="w-[50%] mx-auto">
+        <div className="flex flex-col">
+          <h1 className="font-extrabold text-[#222328] text-[32px]">2. Share to community</h1>
+          <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">Let others see your kraft</p>
+        </div>
+        <div className="mt-10 max-w-xl flex flex-col mx-auto">
+          <p className="mt-2 text-[#666e75] text-[14px] text-center">Once you have created the image you want, share it with others in the community</p>
+          <button onClick={shareImage} className="px-5 py-2.5 text-center mt-3 text-white bg-[#545958] font-medium rounded-md text-sm w-full">
             {isLoading ? "Sharing..." : "Share with the community"}
           </button>
         </div>
-      </form>
+      </div>
     </section>
   );
 };

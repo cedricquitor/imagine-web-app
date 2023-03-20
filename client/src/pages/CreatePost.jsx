@@ -20,7 +20,7 @@ const CreatePost = () => {
       setIsLoading(true);
 
       try {
-        const response = await fetch("http://localhost:8080/api/v1/post", {
+        const response = await fetch("https://imaginkraf-web-service.onrender.com/8080/api/v1/post", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setIsGeneratingImage(true);
-        const response = await fetch("http://localhost:8080/api/v1/dalle", {
+        const response = await fetch("https://imaginkraf-web-service.onrender.com//api/v1/dalle", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -82,7 +82,7 @@ const CreatePost = () => {
       {/* 1. Imagine to reality */}
       <div>
         <div className="w-[50%] flex flex-col mx-auto">
-          <h1 className="font-extrabold text-[#222328] text-[32px]">1. Imagine to reality</h1>
+          <h1 className="font-extrabold text-[#222328] text-[32px]">1. Imagin to reality</h1>
           <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">Bring what you have in mind to reality</p>
         </div>
         <div className="flex flex-col justfiy-center items-center">
@@ -95,7 +95,7 @@ const CreatePost = () => {
 
             {/* Second Grid */}
             <div className="mt-5 flex gap-5 flex-col">
-              <div className="relative p-3 h-[50vh] flex justiy-center items-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 ">
+              <div className="relative p-3 h-[100%] flex justiy-center items-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 ">
                 {form.photo ? <img src={form.photo} alt={form.prompt} className="w-full h-full object-contain" /> : <img src={logo_icon} alt="preview" className="mx-auto object-contain opacity-40" />}
 
                 {isGeneratingImage && (
@@ -115,8 +115,8 @@ const CreatePost = () => {
       {/* 2. Share to community */}
       <div className="w-[50%] mx-auto">
         <div className="flex flex-col">
-          <h1 className="font-extrabold text-[#222328] text-[32px]">2. Share to community</h1>
-          <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">Let others see your kraft</p>
+          <h1 className="font-extrabold text-[#222328] text-[32px]">2. Share your kraf</h1>
+          <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">Let others see what you created</p>
         </div>
         <div className="mt-10 max-w-xl flex flex-col mx-auto">
           <p className="mt-2 text-[#666e75] text-[14px] text-center">Once you have created the image you want, share it with others in the community</p>

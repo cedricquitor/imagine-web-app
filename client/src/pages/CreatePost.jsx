@@ -107,7 +107,7 @@ const CreatePost = () => {
               </div>
             </div>
 
-            <button type="submit" className="mt-2 px-5 py-2.5 text-center text-white bg-neutral-400 font-medium rounded-md text-sm w-full">
+            <button type="submit" className="mt-2 px-5 py-2.5 text-center text-white bg-neutral-400 font-medium rounded-md text-sm w-full" disabled={isGeneratingImage ? true : false}>
               {isGeneratingImage ? "Generating..." : "Generate"}
             </button>
           </form>
@@ -121,7 +121,7 @@ const CreatePost = () => {
         </div>
         <div className="mt-10 max-w-xl flex flex-col mx-auto">
           <p className="mt-2 text-[#666e75] text-[14px] text-center">Once you have created the image you want, share it with others in the community</p>
-          <button onClick={shareImage} className="px-5 py-2.5 text-center mt-3 text-white bg-[#545958] font-medium rounded-md text-sm w-full">
+          <button onClick={shareImage} className="px-5 py-2.5 text-center mt-3 text-white bg-[#545958] font-medium rounded-md text-sm w-full" disabled={isLoading ? true : false}>
             {isLoading ? "Sharing..." : "Share with the community"}
           </button>
         </div>

@@ -9,7 +9,7 @@ const App = () => {
         <Link to="/" className="p-4">
           <img src={logo_full} alt="imagine Full Logo" className="w-36 object-contain" />
         </Link>
-        <Link to="/create-post" className="text-white px-4 py-2 rounded-md bg-[#545958]">
+        <Link to="/create-post" className="text-white px-4 py-2 rounded-md bg-stone-600">
           Imagine
         </Link>
       </header>

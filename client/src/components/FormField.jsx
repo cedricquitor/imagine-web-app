@@ -21,7 +21,7 @@ const FormField = ({ labelName, type, name, placeholder, value, handleChange, is
         value={value}
         onChange={handleChange}
         required
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-3 focus:border-[#4649ff]"
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-3 focus:border-stone-600"
       />
     </div>
   );

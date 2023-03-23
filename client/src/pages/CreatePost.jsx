@@ -82,12 +82,12 @@ const CreatePost = () => {
     <section className="max-w-7xl mx-auto space-y-16">
       {/* 1. Imagine to reality */}
       <div>
-        <div className="w-[50%] flex flex-col mx-auto">
+        <div className="w-[80%] md:w-[50%] flex flex-col mx-auto">
           <h1 className="font-extrabold text-[#222328] text-[32px]">1. Imagin to reality</h1>
           <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">Bring what you have in mind to reality</p>
         </div>
         <div className="flex flex-col justfiy-center items-center">
-          <form onSubmit={generateImage} className="mt-4 max-w-xl w-[50%]">
+          <form onSubmit={generateImage} className="mt-4 max-w-xl w-[80%] md:w-[50%]">
             {/* First Grid */}
             <div className="flex flex-col gap-5">
               <FormField labelName="Your name" type="text" name="name" placeholder="John Doe" value={form.name} handleChange={handleChange} />
@@ -96,7 +96,7 @@ const CreatePost = () => {
 
             {/* Second Grid */}
             <div className="mt-5 flex gap-5 flex-col">
-              <div className="relative p-3 h-[100%] flex justiy-center items-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 ">
+              <div className="relative p-3 h-[100%] flex justiy-center items-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-stone-600 focus:ring-stone-600 ">
                 {form.photo ? <img src={form.photo} alt={form.prompt} className="w-full h-full object-contain" /> : <img src={logo_icon} alt="preview" className="mx-auto object-contain opacity-40" />}
 
                 {isGeneratingImage && (
@@ -114,7 +114,7 @@ const CreatePost = () => {
         </div>
       </div>
       {/* 2. Share to community */}
-      <div className="w-[50%] mx-auto">
+      <div className="w-[80%] md:w-[50%] mx-auto">
         <div className="flex flex-col">
           <h1 className="font-extrabold text-[#222328] text-[32px]">2. Share your kraf</h1>
           <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">Let others see what you created</p>

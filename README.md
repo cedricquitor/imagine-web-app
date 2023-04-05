@@ -1,1 +1,1 @@
-![Mockup](https://imgur.com/qs3oSCm)
+![Mockup](https://i.imgur.com/qs3oSCm.jpg)

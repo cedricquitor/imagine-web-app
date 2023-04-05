@@ -8,7 +8,9 @@ This project uses Open AI's DALL-E 2 API and Cloudinary.
 
 ## 📸 Screenshots
 
-TODO: Add screenshots.
+![Homepage](https://i.imgur.com/RnarXrO.jpg)
+
+![Imagine](https://i.imgur.com/OFV9tm5.jpg)
 
 ## Getting Started
 Download and install 	[Node.js](https://nodejs.org/en/).

@@ -2,7 +2,7 @@
 
 # imaginkraf 🤖
 
-**imaginkraf** is a web social media platform where you could generate and share your AI-generated artworks.
+**imaginkraf** is a web-based social media platform that allows users to create and share their AI-generated artworks. This platform provides a seamless and user-friendly experience for artists, designers, and anyone who loves to explore the possibilities of AI-generated art. With imaginkraf, users can easily create unique, stunning, and personalized art pieces that can be shared with their followers, friends, and family on various social media platforms. Whether you're an experienced artist or just getting started with digital art, imaginkraf is the perfect platform to unleash your creativity and share your passion for AI-generated art with the world.
 
 This project uses Open AI's DALL-E 2 API and Cloudinary.
 
